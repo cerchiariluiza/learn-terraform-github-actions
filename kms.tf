@@ -1,12 +1,12 @@
 
-resource "aws_kms_key" "braspag-key-secret-secret" {
+resource "aws_kms_key" "braspag-key" {
   description         = "My KMS Keys for Data Encryption"
   customer_master_key_spec = var.key_spec
   is_enabled               = var.enabled
   enable_key_rotation      = var.rotation_enabled  
 
   tags = {
-    Name = "braspag-key-secret"
+    Name = "braspag-key"
   }
 
   policy = <<EOF
@@ -86,12 +86,12 @@ EOF
 }
 
 resource "aws_kms_alias" "my_kms_alias" {
-  target_key_id = aws_kms_key.braspag-key-secret.key_id
+  target_key_id = aws_kms_key.braspag-key.key_id
   name          = "alias/${var.kms_alias}"
 }
 
 output "key_id" {
-  value = aws_kms_key.braspag-key-secret.key_id
+  value = aws_kms_key.braspag-key.key_id
 }
 
 
