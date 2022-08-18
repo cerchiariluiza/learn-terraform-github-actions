@@ -18,3 +18,9 @@ variable enabled {
 variable rotation_enabled {
   default = true
 }
+
+variable tags {}
+
+variable alias {}
+
+variable policy {}
