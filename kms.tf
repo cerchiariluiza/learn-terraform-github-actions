@@ -1,12 +1,12 @@
 
-resource "aws_kms_key" "my_kms_key" {
+resource "aws_kms_key" "braspag-key" {
   description         = "My KMS Keys for Data Encryption"
   customer_master_key_spec = var.key_spec
   is_enabled               = var.enabled
   enable_key_rotation      = var.rotation_enabled  
 
   tags = {
-    Name = "my_kms_key"
+    Name = "braspag-key"
   }
 
   policy = <<EOF
@@ -51,7 +51,7 @@ resource "aws_kms_key" "my_kms_key" {
             "Sid": "Allow use of the key",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "${var.user_arn}"
+                "AWS": "arn:aws:iam::754464749225:role/role_braspag_tf_template_role_por_randomico"
             },
             "Action": [
                 "kms:Encrypt",
@@ -86,37 +86,20 @@ EOF
 }
 
 resource "aws_kms_alias" "my_kms_alias" {
-  target_key_id = aws_kms_key.my_kms_key.key_id
+  target_key_id = aws_kms_key.braspag-key.key_id
   name          = "alias/${var.kms_alias}"
 }
 
 output "key_id" {
-  value = aws_kms_key.my_kms_key.key_id
+  value = aws_kms_key.braspag-key.key_id
 }
 
-variables.tf:
-
-variable "region" {
-  default = "us-east-1"
-}
-
-variable "user_arn" {
-  default ="arn:aws:iam::047109936880:user/khong-aol"
-}
-
-variable key_spec {
-  default = "SYMMETRIC_DEFAULT"
-}
-
-variable enabled {
-  default = true
-}
 
 output "key_id" {
-  value = aws_kms_key.my_kms_key.key_id
+  value = aws_kms_key.braspag-key.key_id
 }
 
 output "key_arn" {
-  value = aws_kms_key.my_kms_key.arn
+  value = aws_kms_key.braspag-key.arn
 }
 

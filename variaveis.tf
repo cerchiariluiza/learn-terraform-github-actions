@@ -1,10 +1,9 @@
-
 variable "region" {
   default = "sa-east-1"
 }
 
 variable "user_arn" {
-  default ="arn:aws:iam::*luiza.andrade"
+  default ="arn:aws:iam::754464749225:user/luiza.andrade"
 }
 
 variable key_spec {
@@ -22,4 +21,3 @@ output "key_id" {
 output "key_arn" {
   value = aws_kms_key.braspag-key.arn
 }
-
