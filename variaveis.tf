@@ -21,7 +21,7 @@ variable rotation_enabled {
 
 variable tags {}
 
-variable alias {
+variable kms_alias {
     default  = "bee2pay-backend-payments-backend-braspag-lambda_function-devMarketplaceMasterCredential-secret-key"
 }
 
