@@ -14,10 +14,3 @@ variable enabled {
   default = true
 }
 
-output "key_id" {
-  value = aws_kms_key.braspag-key.key_id
-}
-
-output "key_arn" {
-  value = aws_kms_key.braspag-key.arn
-}
