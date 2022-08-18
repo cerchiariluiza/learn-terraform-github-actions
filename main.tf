@@ -11,11 +11,11 @@ terraform {
   }
   required_version = ">= 1.1.0"
 
-  cloud {
-    organization = "REPLACE_ME"
+ cloud {
+    organization = "cerchiariluiza"
 
     workspaces {
-      name = "gh-actions-demo"
+      name = "worbee2pay"
     }
   }
 }
