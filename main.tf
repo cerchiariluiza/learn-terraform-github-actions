@@ -11,17 +11,18 @@ terraform {
   }
   required_version = ">= 1.1.0"
 
- cloud {
+
+  cloud {
     organization = "cerchiariluiza"
 
     workspaces {
-      name = "worbee2pay"
+      name = "bee2pay"
     }
   }
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "sa-east-1"
 }
 
 resource "random_pet" "sg" {}
