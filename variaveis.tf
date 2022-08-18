@@ -14,3 +14,7 @@ variable enabled {
   default = true
 }
 
+
+variable rotation_enabled {
+  default = true
+}
